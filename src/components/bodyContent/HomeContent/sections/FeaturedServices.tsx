@@ -1,43 +1,16 @@
 import React from "react";
-import service1 from "../../../../assets/service1.png";
-import service2 from "../../../../assets/service2.png";
-import service3 from "../../../../assets/service3.png";
-import service4 from "../../../../assets/service4.png";
 
-const FeaturedServices: React.FC = () => {
-    const services = [
-        {
-            image: service1,
-            title: "HỆ THỐNG THÔNG TIN CƠ ĐỘNG",
-            link: "/hethongthongtincodong",
-        },
-        {
-            image: service2,
-            title: "HỆ THỐNG THÔNG TIN CƠ ĐỘNG",
-            link: "/hethongthongtincodong",
-        },
-        {
-            image: service3,
-            title: "HỆ THỐNG THÔNG TIN CƠ ĐỘNG",
-            link: "/hethongthongtincodong",
-        },
-        {
-            image: service4,
-            title: "HỆ THỐNG THÔNG TIN CƠ ĐỘNG",
-            link: "/hethongthongtincodong",
-        },
-        {
-            image: service1,
-            title: "HỆ THỐNG THÔNG TIN CƠ ĐỘNG",
-            link: "/hethongthongtincodong",
-        },
-        {
-            image: service2,
-            title: "HỆ THỐNG THÔNG TIN CƠ ĐỘNG",
-            link: "/hethongthongtincodong",
-        },
-    ];
+interface FeaturedService {
+    image: string;
+    title: string;
+    link: string;
+}
 
+interface FeaturedServicesProps {
+    data: FeaturedService[];
+}
+
+const FeaturedServices: React.FC<FeaturedServicesProps> = ({ data }) => {
     const itemsPerPage = 4;
 
     return (
@@ -51,10 +24,10 @@ const FeaturedServices: React.FC = () => {
                 <div
                     className="flex space-x-4"
                     style={{
-                        width: `${services.length * (100 / itemsPerPage)}%`,
+                        width: `${data.length * (100 / itemsPerPage)}%`,
                     }}
                 >
-                    {services.map((service, index) => (
+                    {data.map((service, index) => (
                         <div
                             key={index}
                             className="bg-white shadow-lg rounded-lg overflow-hidden"

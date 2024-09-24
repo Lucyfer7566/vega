@@ -1,45 +1,30 @@
 import React, { useState } from "react";
-import application1 from "../../../../assets/application1.png";
 
-const LargeApplications: React.FC = () => {
-    const applications = [
-        {
-            image: application1,
-            title: "TÊN ỨNG DỤNG 01",
-            description:
-                "Địa chất học là một nhánh trong khoa học Trái Đất, là môn khoa học nghiên cứu về các vật chất rắn và lỏng cấu tạo nên Trái Đất, đúng ra là nghiên cứu thạch quyển bao gồm cả phần vỏ Trái Đất và phần cứng của manti trên. Địa chất học tập trung nghiên cứu: cấu trúc, đặc điểm vật lý, động lực, và lịch sử của các vật liệu trên Trái Đất, kể cả các quá trình hình thành, vận chuyển và biến đổi của các vật liệu này....",
-            link: "/ung-dung-1",
-        },
-        {
-            image: application1,
-            title: "TÊN ỨNG DỤNG 02",
-            description: "Mô tả cho ứng dụng 2. Lorem ipsum dolor sit amet...",
-            link: "/ung-dung-2",
-        },
-        {
-            image: application1,
-            title: "TÊN ỨNG DỤNG 03",
-            description: "Mô tả cho ứng dụng 3. Consectetur adipiscing elit...",
-            link: "/ung-dung-3",
-        },
-    ];
+interface Application {
+    image: string;
+    title: string;
+    description: string;
+    link: string;
+}
 
+interface LargeApplicationsProps {
+    data: Application[];
+}
+
+const LargeApplications: React.FC<LargeApplicationsProps> = ({ data }) => {
     const [currentAppIndex, setCurrentAppIndex] = useState(0);
 
     const handlePrevious = () => {
         setCurrentAppIndex(
-            (prevIndex) =>
-                (prevIndex - 1 + applications.length) % applications.length
+            (prevIndex) => (prevIndex - 1 + data.length) % data.length
         );
     };
 
     const handleNext = () => {
-        setCurrentAppIndex(
-            (prevIndex) => (prevIndex + 1) % applications.length
-        );
+        setCurrentAppIndex((prevIndex) => (prevIndex + 1) % data.length);
     };
 
-    const currentApp = applications[currentAppIndex];
+    const currentApp = data[currentAppIndex];
 
     return (
         <section className="py-12 bg-gray-100">

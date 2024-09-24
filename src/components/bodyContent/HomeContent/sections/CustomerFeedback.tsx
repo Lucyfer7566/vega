@@ -1,37 +1,27 @@
 import React, { useState } from "react";
-import avatar1 from "../../../../assets/avatar1.png";
-import avatar2 from "../../../../assets/avatar1.png";
 
-const CustomerFeedback: React.FC = () => {
-    const feedbacks = [
-        {
-            avatar: avatar1,
-            content:
-                "They know how important it is to eliminate any risk factors that you can in a complex system integration project. Their tools and software components have proven their reliability. For me, that means one less risk to worry about.",
-            author: "ỦY BAN PHÒNG CHỐNG CỨU NẠN",
-        },
-        {
-            avatar: avatar2,
-            content: "Lorem..............",
-            author: "MEO MEO",
-        },
-    ];
+interface CustomerFeedbackProps {
+    data: {
+        avatar: string;
+        content: string;
+        author: string;
+    }[];
+}
 
+const CustomerFeedback: React.FC<CustomerFeedbackProps> = ({ data }) => {
     const [currentFeedbackIndex, setCurrentFeedbackIndex] = useState(0);
 
     const handlePreviousFeedback = () => {
         setCurrentFeedbackIndex(
-            (prevIndex) => (prevIndex - 1 + feedbacks.length) % feedbacks.length
+            (prevIndex) => (prevIndex - 1 + data.length) % data.length
         );
     };
 
     const handleNextFeedback = () => {
-        setCurrentFeedbackIndex(
-            (prevIndex) => (prevIndex + 1) % feedbacks.length
-        );
+        setCurrentFeedbackIndex((prevIndex) => (prevIndex + 1) % data.length);
     };
 
-    const currentFeedback = feedbacks[currentFeedbackIndex];
+    const currentFeedback = data[currentFeedbackIndex];
 
     return (
         <section className="py-12 text-center bg-blue-600 text-white relative">

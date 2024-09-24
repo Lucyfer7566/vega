@@ -1,4 +1,5 @@
 import React from "react";
+import { mockData } from "../../../mocks/bodyContent/HomeContent";
 import Banner from "./sections/Banner";
 import FeaturedServices from "./sections/FeaturedServices";
 import LargeApplications from "./sections/LargeApplications";
@@ -11,14 +12,14 @@ import News from "./sections/News";
 const HomeContent: React.FC = () => {
     return (
         <div>
-            <Banner />
-            <FeaturedServices />
-            <LargeApplications />
+            <Banner data={mockData.banner} />
+            <FeaturedServices data={mockData.featuredServices} />
+            <LargeApplications data={mockData.largeApplications} />
             <Video />
-            <Images />
-            <Geospatial />
-            <CustomerFeedback />
-            <News />
+            <Images data={mockData.images} />
+            <Geospatial data={mockData.geospatial} />
+            <CustomerFeedback data={mockData.customerFeedbacks} />
+            <News data={mockData.news} />
         </div>
     );
 };
