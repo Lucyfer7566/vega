@@ -24,6 +24,12 @@ import tintuc2 from "../../assets/tintuc2.png";
 import tintuc3 from "../../assets/tintuc3.png";
 import tintuc4 from "../../assets/tintuc3.png";
 import tintuc5 from "../../assets/tintuc3.png";
+import sanofi from "../../assets/sanofi.png";
+import hyperdrug from "../../assets/hyperdrug.png";
+import healthCenter from "../../assets/healthCenter.png";
+import pfizer from "../../assets/pfizer.png";
+import bristol from "../../assets/bristol.png";
+import humble from "../../assets/humble.png";
 
 export const mockData = {
     banner: {
@@ -208,6 +214,31 @@ export const mockData = {
             description:
                 "Tình trạng đau lưng xảy ra có thể là do thay đổi thời tiết hoặc vì bạn vận động quá sức. Tuy nhiên, chỉ cần khắc phục ...",
             link: "/tin-tuc-5",
+        },
+    ],
+    partners: [
+        sanofi,
+        hyperdrug,
+        healthCenter,
+        pfizer,
+        bristol,
+        humble,
+        sanofi,
+        humble,
+        pfizer,
+    ],
+    videos: [
+        {
+            src: "https://www.youtube.com/embed/PNhYz6RmIr4?si=8dwy2z0RHLs2dJA0&",
+            title: "Video 1",
+        },
+        {
+            src: "https://www.youtube.com/embed/d44UTUSTYKU?si=fV60-t-amr2XruCH",
+            title: "Video 2",
+        },
+        {
+            src: "https://www.youtube.com/embed/WtLJlUdkWXI?si=5skyVSYEuq7foibM",
+            title: "Video 3",
         },
     ],
 };

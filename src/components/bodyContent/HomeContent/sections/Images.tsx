@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Pagination from "../../../../functions/Pagination";
 
 interface ImageItem {
     image: string;
@@ -26,31 +27,40 @@ const Images: React.FC<ImagesProps> = ({ data }) => {
     const currentImages = data.slice(startIndex, endIndex);
 
     return (
-        <section className="py-12 text-center">
-            <h2 className="text-2xl font-bold">ẢNH</h2>
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-                {currentImages.map((image, index) => (
-                    <div key={index} className="overflow-hidden">
-                        <img
-                            src={image.image}
-                            alt={`Image ${index + 1}`}
-                            className="w-full h-auto"
-                        />
-                    </div>
-                ))}
-            </div>
-            <div className="flex justify-center mt-4">
-                {Array.from({ length: totalPages }, (_, i) => (
-                    <button
-                        key={i}
-                        onClick={() => handlePageChange(i + 1)}
-                        className={`h-6 w-6 rounded-full mx-1 ${
-                            currentPage === i + 1
-                                ? "bg-blue-500"
-                                : "bg-gray-300"
-                        }`}
-                    ></button>
-                ))}
+        <section className="py-12">
+            <div className="container mx-auto px-4">
+                <div className="flex justify-center items-center mb-8">
+                    <h2 className="text-2xl md:text-3xl font-bold text-blue-600 mr-4">
+                        ẢNH
+                    </h2>
+                </div>
+                <p className="text-gray-600 text-center text-base sm:text-lg md:text-xl mb-8">
+                    We are committed to providing our customers with exceptional
+                    service while offering our employees the best training.
+                </p>
+
+                <div className="grid grid-cols-3 gap-4">
+                    {currentImages.map((image, index) => (
+                        <div key={index} className="overflow-hidden rounded-lg">
+                            <img
+                                src={image.image}
+                                alt={`Image ${index + 1}`}
+                                className="w-full h-auto transform hover:scale-110 transition duration-300 ease-in-out"
+                                style={{
+                                    maxHeight: "370px",
+                                    objectFit: "cover",
+                                }}
+                            />
+                        </div>
+                    ))}
+                </div>
+
+                {/* Phân trang */}
+                <Pagination
+                    totalPages={totalPages}
+                    currentPage={currentPage}
+                    onPageChange={handlePageChange}
+                />
             </div>
         </section>
     );

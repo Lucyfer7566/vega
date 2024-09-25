@@ -15,11 +15,11 @@ const HomeContent: React.FC = () => {
             <Banner data={mockData.banner} />
             <FeaturedServices data={mockData.featuredServices} />
             <LargeApplications data={mockData.largeApplications} />
-            <Video />
+            <Video data={mockData.videos} />
             <Images data={mockData.images} />
             <Geospatial data={mockData.geospatial} />
             <CustomerFeedback data={mockData.customerFeedbacks} />
-            <News data={mockData.news} />
+            <News data={{ news: mockData.news, partners: mockData.partners }} />
         </div>
     );
 };
