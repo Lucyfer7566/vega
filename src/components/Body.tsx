@@ -3,7 +3,7 @@ import HomeContent from "./bodyContent/HomeContent/HomeContent";
 import ServicesContent from "./bodyContent/ServicesContent/ServicesContent";
 import ProductsContent from "./bodyContent/ProductsContent/ProductsContent";
 import SolutionsContent from "./bodyContent/SolutionsContent/SolutionsContent";
-import NewsContent from "./bodyContent/NewsContent/NewsContent";
+import News from "./bodyContent/NewsContent/News";
 import ContactContent from "./bodyContent/ContactContent/ContactContent";
 
 interface BodyProps {
@@ -21,7 +21,7 @@ const Body: React.FC<BodyProps> = ({ activeMenu }) => {
         case "Giải pháp":
             return <SolutionsContent />;
         case "Tin tức":
-            return <NewsContent />;
+            return <News />;
         case "Liên hệ":
             return <ContactContent />;
         default:

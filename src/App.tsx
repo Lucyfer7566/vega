@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
+import NewsContent from "./components/bodyContent/NewsContent/NewsContent";
 
 const App: React.FC = () => {
     const [activeMenu, setActiveMenu] = useState("Trang chủ");
@@ -11,11 +13,19 @@ const App: React.FC = () => {
     };
 
     return (
-        <div>
-            <Header onMenuClick={handleMenuClick} activeMenu={activeMenu} />
-            <Body activeMenu={activeMenu} />
-            <Footer />
-        </div>
+        <BrowserRouter>
+            <div>
+                <Header onMenuClick={handleMenuClick} activeMenu={activeMenu} />
+                <Routes>
+                    <Route
+                        path="/"
+                        element={<Body activeMenu={activeMenu} />}
+                    />
+                    <Route path="/tin-cong-nghe" element={<NewsContent />} />{" "}
+                </Routes>
+                <Footer />
+            </div>
+        </BrowserRouter>
     );
 };
 
